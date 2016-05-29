@@ -14,7 +14,7 @@ dnf clean all &&
     /opt/greenlobster/c9sdk/scripts/install-sdk.sh &&
     adduser --create-home emory &&
     echo "emory ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/emory &&
-chmod 0440 /etc/sudoers.d/user &&
+chmod 0440 /etc/sudoers.d/emory &&
 
     su --login emory /opt/greenlobster/bin/install.sh &&
     true
