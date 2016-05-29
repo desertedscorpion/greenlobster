@@ -1,7 +1,10 @@
 #!/bin/bash
 
 source /opt/greenlobster/private/pass.properties &&
-cp /opt/greenlobster/private/id_rsa ${HOME}/.ssh/id_rsa &&
+ID_RSA=$(mktemp) &&
+sudo cp /opt/greenlobster/private/id_rsa /${ID_RSA} &&
+sudo chmod a+r ${ID_RSA} &&
+cp ${ID_RSA} ${HOME}/.ssh/id_rsa &&
 chmod 0600 ${HOME}/.ssh/id_rsa &&
 git config --global user.email "emory.merryman@gmail.com" &&
 git config --global user.name "Emory Merryman" &&
