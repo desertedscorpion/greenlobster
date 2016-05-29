@@ -5,9 +5,14 @@ cp /opt/greenlobster/private/id_rsa ${HOME}/.ssh/id_rsa &&
 chmod 0600 ${HOME}/.ssh/id_rsa &&
 git config --global user.email "emory.merryman@gmail.com" &&
 git config --global user.name "Emory Merryman" &&
-(gpg --allow-secret-key --import /opt/greenlobster/private/secret.key || true ) &&
-(gpg2 --allow-secret-key --import /opt/greenlobster/private/secret.key || true ) &&
-gpg --import-ownertrust /opt/greenlobster/private/owner.trust &&
+SECRET_KEY=$(mktemp) &&
+OWNER_TRUST=$(mktemp) &&
+sudo cp /opt/greenlobster/private/secret.key ${SECRET_KEY} &&
+sudo cp /opt/greenlobster/private/owner.trust ${OWNER_TRUST} &&
+sudo chmod a+r ${SECRET_KEY} ${OWNER_TRUST} &&
+(gpg --allow-secret-key --import ${SECRET_KEY} || true ) &&
+(gpg2 --allow-secret-key --import ${SECRET_KEY} || true ) &&
+gpg --import-ownertrust ${OWNER_TRUST} &&
 pass init ${PASS_GPG_KEY_ID} &&
 pass git init &&
 pass git remote add origin ${PASS_GIT_URL} &&
