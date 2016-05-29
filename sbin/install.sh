@@ -12,7 +12,7 @@ dnf clean all &&
     git -C /opt/greenlobster/c9sdk remote add origin git://github.com/c9/core.git &&
     git -C /opt/greenlobster/c9sdk pull origin master &&
     /opt/greenlobster/c9sdk/scripts/install-sdk.sh &&
-    adduser --create-home emory &&
+    adduser --create-home --uid 501 --gid 20 emory &&
     echo "emory ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/emory &&
 chmod 0440 /etc/sudoers.d/emory &&
 
