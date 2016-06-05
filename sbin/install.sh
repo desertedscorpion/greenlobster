@@ -9,6 +9,7 @@ dnf update --assumeyes &&
     install-sudo.sh &&
     install-user.sh &&
     install-pass.sh &&
+    install-programs.sh &&
     su --login emory /opt/greenlobster/bin/install.sh &&
     dnf update --assumeyes &&
     dnf clean all &&
