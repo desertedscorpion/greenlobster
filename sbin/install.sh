@@ -6,8 +6,8 @@ dnf update --assumeyes &&
     chmod 0555 /opt/greenlobster/bin/* &&
     export PATH=${PATH}:/opt/greenlobster/sbin &&
     install-cloud9.sh &&
-    install-user.sh &&
     install-sudo.sh &&
+    install-user.sh &&
     install-pass.sh &&
     su --login emory /opt/greenlobster/bin/install.sh &&
     dnf update --assumeyes &&
