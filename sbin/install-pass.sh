@@ -1,4 +1,4 @@
 #!/bin/bash
 
-dnf install --assumeyes pass gnupgp gnupgp2 &&
+dnf install --assumeyes pass gnupg gnupg2 &&
     true
